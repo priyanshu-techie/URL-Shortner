@@ -28,6 +28,7 @@ main{
 #theLinkCover{
     display: flex;
     border: 1px solid black;
+    max-width: 50rem;
 }
 
 #theLink{

@@ -22,9 +22,8 @@ router.post('/submitUrl',async (req,res)=>{
     if(isUrl(url)){
         // 1.generate code  2.save in db 3. send to user
         const id=nanoid();
-        // temporary me port dal ke rakhe hai hata dena:
         
-        const completeUrl = `${req.protocol}://${req.hostname}:3000/`;
+        const completeUrl = `${req.protocol}://${req.hostname}/`;
         const shortened = completeUrl + id ;
         console.log(shortened);
         const details = await linkDb.create({ originalLink:url, shortLink:shortened, uniqueId:id });
