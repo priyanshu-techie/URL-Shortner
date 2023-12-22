@@ -10,25 +10,45 @@ router.get('/',(req,res)=>{
     res.render('main.ejs');
 })
 
+// get analytics page
+router.get('/getAnalytics',(req,res)=>{
+    res.render('getAnalytics.ejs');
+})
+
 
 // post the url
 router.post('/submitUrl',async (req,res)=>{
     let url = req.body.longUrl;
-    console.log("given: ", url);
     if(isUrl(url)){
-        console.log('entered if')
         // 1.generate code  2.save in db 3. send to user
         const id=nanoid();
-        const shortened = `${req.url}/${id}`;
+        // temporary me port dal ke rakhe hai hata dena:
+        
+        const completeUrl = `${req.protocol}://${req.hostname}:3000/`;
+        const shortened = completeUrl + id ;
         console.log(shortened);
         const details = await linkDb.create({ originalLink:url, shortLink:shortened, uniqueId:id });
         res.render('success.ejs',{details});
     }
     // send the error msg with the button to redirect to the home page 
     else{
-        res.render('failure.ejs');
+        res.render('error.ejs',{message:"Provided URL is not a correct URL !! URL's are of the form : https://www.example.com OR https://example.com"});
     }
 });
+
+router.post('/getAnalytics',async (req,res)=>{
+    // check if url, if yes continue else error.ejs
+    let url = req.body.shortUrl;
+    if(isUrl(url)){
+        // take out the id and find in db and then redirect to ananlytics
+        const data = new URL(url);
+        const id = data.pathname.substring(1);
+        res.redirect( `/analytics/${id}`);
+    }
+    else{
+        res.render('error.ejs',{message:"Provided URL is not a correct URL !! URL's are of the form : https://www.example.com OR https://example.com"})
+    }
+})
 
 
 // redirect to the original of the shortened url 
@@ -42,7 +62,20 @@ router.get('/:id',async (req,res)=>{
     }
     else{
         // no page found wit that link 
-        res.render('noPage.ejs');
+        res.redirect('/');
+    }
+})
+
+
+router.get('/analytics/:id',async (req,res)=>{
+    // find the id from the db
+    const document = await linkDb.find({uniqueId:req.params.id}).lean();
+    if(document.length !== 0 ){
+        res.render('analytics.ejs',{document:document[0]})
+    }
+    else{
+        // no page found wit that link 
+        res.render('error.ejs',{message:"No Data Found !!!"});
     }
 })
 

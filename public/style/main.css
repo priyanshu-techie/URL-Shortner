@@ -1,46 +1,49 @@
-body {
+body{
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #587dd3, #223d74);
-    color: #fff;
+    background-color:rgb(249,249,249) ;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+main{
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
-
-.container {
+.title{
+    padding-bottom: 1rem;
+    font-size: 3rem;
+    font-weight: bolder;
+    color: rgb(1,134,218);
+}
+.box{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: centre;
+    border: 2px solid gray;
+    width: 70vw;
+    padding: 2rem;
+}
+.box>p{text-align: center; color: gray;}
+.box>form{
     text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(to right, #3b4a6d, #111e37);
-    padding-right: 40px;
 }
-
-h1 {
-    margin-bottom: 20px;
+#longUrl{
+    padding:.5rem;
+    width: 80%;
+    font-size: 1.5rem;
 }
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 5px;
+#submitBtn{
+    padding: .5rem;
+    background-color: rgb(1,134,218);
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
 }
-
-button {
-    background-color: #256793;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #2980b9;
+a{
+    color: blue;
 }

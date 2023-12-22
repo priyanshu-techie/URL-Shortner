@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success</title>
+    <link rel="stylesheet" href="style/success.css">
 </head>
 <body>
-    <h1>
-        <%=details.originalLink%>, <%=details.shortLink%>
-    </h1>
+    <header>
+        Short URL
+    </header>
+    <main>
+        <h1>Your Short URL is :</h1>
+         <div id="output">
+            <div id="theLinkCover">
+                <p id="theLink"><%=details.shortLink%></p> <button onclick="copyToclip()" id="copyBtn">Copy Link</button>
+            </div>
+            <p>Long URL: <span id="originalLink"><%=details.originalLink%></span></p>
+            <div id="buttons">
+                <a class="btn" href="/">New Short URL</a>
+                <a href="/analytics/<%=details.uniqueId%>" class="btn">Get the number of clicks.</a>
+            </div>
+        </div>
+    </main>
+    <script src="script/script.js"></script>
 </body>
 </html>

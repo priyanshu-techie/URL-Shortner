@@ -1,0 +1,57 @@
+body{
+    font-family: 'Trebuchet MS', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header{
+    text-align: center;
+    font-size: 3rem;
+    color: rgb(1,134,218);
+    padding: 3rem;
+    box-shadow: 0px 5px 5px rgb(178, 178, 178);
+    margin-bottom: 5px;
+}
+main{
+    background-color: rgb(249,249,249);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: calc(100vh - 10rem);
+    overflow: scroll;
+}
+#output{
+    border: 1px solid rgb(181, 181, 181);
+    background-color: white;
+    padding: 2rem;
+}
+#theLinkCover{
+    display: flex;
+    border: 1px solid black;
+}
+
+#theLink{
+    padding-left: 0.25rem;
+    font-size: 1.5rem;
+    width:30rem;
+}
+#theLinkCover>button,.btn{
+    background-color: rgb(1,134,218);
+    color: white;
+    font-weight: bolder;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+}
+#originalLink{
+    color: blue;
+}
+#buttons{
+    display: flex;
+}
+#buttons>a{
+    margin-right: 2rem;
+}
+a{
+    text-decoration: none;
+}

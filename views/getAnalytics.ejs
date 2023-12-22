@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Analytics.</title>
+    <link rel="stylesheet" href="style/main.css">
+</head>
+<body>
+    <main>
+        <div class="title">
+            Short URL
+        </div>
+        <div class="box">
+            <p>Paste the URL whose analytics you want to see.</p>
+            <form action="/getAnalytics" method="post" id="longUrlForm">
+                <input type="text" required placeholder="Enter the Short URL" name="shortUrl" id="longUrl">
+                <input id="submitBtn" type="submit" value="Get Data"></input>
+            </form>
+        </div>
+    </main>
+    <script src="script/script.js"></script>
+</body>
+</html>
